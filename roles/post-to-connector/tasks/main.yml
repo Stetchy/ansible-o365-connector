@@ -1,0 +1,8 @@
+- name: Post JSON Card to O365 Connector
+  uri: 
+    url: "{{ o365_connector_url }}"
+    method: POST
+    return_content: yes
+    content: "application/json"
+    body: "{{ lookup('template', 'templates/' + o365_card + '.json') }}"
+    body_format: json

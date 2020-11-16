@@ -1,0 +1,13 @@
+o365_connector_url: ""
+o365_card: deployment_approval_card
+
+deployment_card_theme_color: "ff8d03"
+deployment_card_title: "Production Deployment Approval"
+deployment_card_text: "A production deployment request is pending your approval."
+
+job_name: "test job"
+job_url: "http://blah.com/blah"
+job_cause: "Riain"
+deploy_ticket: "R12345678"
+job_approval_url: "{{job_url}}/approve"
+job_abort_url: "{{job_url}}/abort"

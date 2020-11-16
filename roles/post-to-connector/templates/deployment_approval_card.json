@@ -1,0 +1,51 @@
+{
+    "@context": "https://schema.org/extensions",
+    "@type": "MessageCard",
+    "themeColor": "{{ deployment_card_theme_color }}",
+    "title": "{{ deployment_card_title }} ",
+    "text": "{{ deployment_card_text }}",
+    "sections": [
+        {
+            "facts": [
+                {
+                    "name": "Job:",
+                    "value": "[{{ job_name }}]({{ job_url }})"
+                },
+                {
+                    "name": "Requested by:",
+                    "value": "{{ job_cause }}"
+                },
+                {
+                    "name": "Deploy ticket:",
+                    "value": "{{ deploy_ticket }}"
+                }
+            ]
+        }
+    ],
+    "potentialAction": [
+        {
+            "@type": "ActionCard",
+            "name": "Approve",
+            "actions": [
+                {
+                    "@type": "HttpPOST",
+                    "name": "Approve Deployment",
+                    "isPrimary": true,
+                    "target": "{{ job_approval_url }}"
+                }
+            ]
+        },
+        {
+            "@type": "ActionCard",
+            "name": "Decline",
+            "actions": [
+                {
+                    "@type": "HttpPOST",
+                    "name": "Decline Deployment",
+                    "isPrimary": false,
+                    "target": "{{ job_abort_url }}"
+                }
+            ]
+        }
+    ]
+}
